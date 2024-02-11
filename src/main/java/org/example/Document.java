@@ -48,6 +48,22 @@ public class Document {
     @JsonProperty("reg_number")
     private String regNumber;
 
+    public Document(Description description, String docId, String docStatus, String docType, boolean importRequest, String ownerInn, String participantInn, String producerInn, Date productionDate, String productionType, List<Product> products, Date regDate, String regNumber) {
+        this.description = description;
+        this.docId = docId;
+        this.docStatus = docStatus;
+        this.docType = docType;
+        this.importRequest = importRequest;
+        this.ownerInn = ownerInn;
+        this.participantInn = participantInn;
+        this.producerInn = producerInn;
+        this.productionDate = productionDate;
+        this.productionType = productionType;
+        this.products = products;
+        this.regDate = regDate;
+        this.regNumber = regNumber;
+    }
+
     public Description getDescription() {
         return description;
     }
@@ -152,119 +168,6 @@ public class Document {
         this.regNumber = regNumber;
     }
 
-    public static class Description {
-        @JsonProperty("participantInn")
-        private String participantInn;
 
-        public String getParticipantInn() {
-            return participantInn;
-        }
-
-        public void setParticipantInn(String participantInn) {
-            this.participantInn = participantInn;
-        }
-    }
-
-    public static class Product {
-        @JsonProperty("certificate_document")
-        private String certificateDocument;
-
-        @JsonProperty("certificate_document_date")
-        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-        private Date certificateDocumentDate;
-
-        @JsonProperty("certificate_document_number")
-        private String certificateDocumentNumber;
-
-        @JsonProperty("owner_inn")
-        private String ownerInn;
-
-        @JsonProperty("producer_inn")
-        private String producerInn;
-
-        @JsonProperty("production_date")
-        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-        private Date productionDate;
-
-        @JsonProperty("tnved_code")
-        private String tnvedCode;
-
-        @JsonProperty("uit_code")
-        private String uitCode;
-
-        @JsonProperty("uitu_code")
-        private String uituCode;
-
-        public String getCertificateDocument() {
-            return certificateDocument;
-        }
-
-        public void setCertificateDocument(String certificateDocument) {
-            this.certificateDocument = certificateDocument;
-        }
-
-        public Date getCertificateDocumentDate() {
-            return certificateDocumentDate;
-        }
-
-        public void setCertificateDocumentDate(Date certificateDocumentDate) {
-            this.certificateDocumentDate = certificateDocumentDate;
-        }
-
-        public String getCertificateDocumentNumber() {
-            return certificateDocumentNumber;
-        }
-
-        public void setCertificateDocumentNumber(String certificateDocumentNumber) {
-            this.certificateDocumentNumber = certificateDocumentNumber;
-        }
-
-        public String getOwnerInn() {
-            return ownerInn;
-        }
-
-        public void setOwnerInn(String ownerInn) {
-            this.ownerInn = ownerInn;
-        }
-
-        public String getProducerInn() {
-            return producerInn;
-        }
-
-        public void setProducerInn(String producerInn) {
-            this.producerInn = producerInn;
-        }
-
-        public Date getProductionDate() {
-            return productionDate;
-        }
-
-        public void setProductionDate(Date productionDate) {
-            this.productionDate = productionDate;
-        }
-
-        public String getTnvedCode() {
-            return tnvedCode;
-        }
-
-        public void setTnvedCode(String tnvedCode) {
-            this.tnvedCode = tnvedCode;
-        }
-
-        public String getUitCode() {
-            return uitCode;
-        }
-
-        public void setUitCode(String uitCode) {
-            this.uitCode = uitCode;
-        }
-
-        public String getUituCode() {
-            return uituCode;
-        }
-
-        public void setUituCode(String uituCode) {
-            this.uituCode = uituCode;
-        }
-    }
 }
+
