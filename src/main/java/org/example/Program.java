@@ -9,6 +9,13 @@ public class Program {
     public static void main(String[] args) {
         CrptApi api = new CrptApi(TimeUnit.MINUTES, 2);
 
+        Document document = createTestDocument();
+        while (true){
+            api.createDocument(document, "111");
+        }
+    }
+
+    private static Document createTestDocument(){
         Description description = new Description("string");
         Product product = new Product("certificateDocument", new Date(), "certificateDocumentNumber", "ownerInn",
                 "producerInn", new Date(), "tnvedCode", "uitCode", "uituCode");
@@ -20,12 +27,8 @@ public class Program {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Document document = new Document(description, "doc_id", "doc_status", "LP_INTRODUCE_GOODS",
+        return new Document(description, "doc_id", "doc_status", "LP_INTRODUCE_GOODS",
                 true, "owner_inn", "participant_inn", "producer_inn", date, "production_type",
                 products, date, "reg_number");
-
-        while (true){
-            api.createDocument(document, "111");
-        }
     }
 }

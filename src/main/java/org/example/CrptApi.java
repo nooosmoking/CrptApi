@@ -52,7 +52,7 @@ public class CrptApi {
                         .build();
                 HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             } catch (InterruptedException | IOException | URISyntaxException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
 
